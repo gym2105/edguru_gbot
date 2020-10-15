@@ -8,6 +8,8 @@
 # Import Libraries
 # import encodes as request
 import sys
+from tg_bot.modules.disable import DisableAbleCommandHandler
+from telegram.ext import CommandHandler
 
 version = (3, 0)
 cur_version = sys.version_info
