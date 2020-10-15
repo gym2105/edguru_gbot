@@ -1798,3 +1798,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    dispatcher.add_handler(CommandHandler('gsearch', tts, pass_args=True))
