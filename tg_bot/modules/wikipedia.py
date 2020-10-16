@@ -4,21 +4,33 @@
 """WikiPedia.ORG
 Syntax: .wikipedia Query"""
 import wikipedia
-from uniborg.util import admin_cmd
 
+from telegram import ChatAction
+import html
+import re
+import json
+from datetime import datetime
+from typing import Optional, List
+import time
+import requests
+from telegram import Message, Chat, Update, Bot, MessageEntity
+from telegram import ParseMode
+from telegram.ext import CommandHandler, run_async, Filters
+from telegram.utils.helpers import escape_markdown, mention_html
+from tg_bot import dispatcher
+from tg_bot.__main__ import STATS
+from tg_bot.modules.disable import DisableAbleCommandHandler
+from tg_bot.modules.helper_funcs.extraction import extract_user
 
-@borg.on(admin_cmd(pattern="wikipedia (.*)"))
-async def _(event):
-    if event.fwd_from:
-        return
-    await event.edit("Processing ...")
-    input_str = event.pattern_match.group(1)
-    result = ""
-    results = wikipedia.search(input_str)
+  def wikisearch(bot: Bot, update: Update, args):
+    message = update.effective_message
+  text = message.reply_to_message.text
+    results = wikipedia.search(text)
     for s in results:
         page = wikipedia.page(s)
         url = page.url
         result += f"> [{s}]({url}) \n"
-    await event.edit(
-        "WikiPedia **Search**: {} \n\n **Result**: \n\n{}".format(input_str, result)
-    )
+         message.reply_to_message.reply_text(result)
+
+  
+    wikisearch_handler = DisableAbleCommandHandler("wse", wikisearch)
