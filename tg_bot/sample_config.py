@@ -22,7 +22,8 @@ class Config(object):
     WEBHOOK = True
     URL = None
 
-   
+    SUDO_USERS = [] 
+     WHITELIST_USERS = [] 
     CERT_PATH = None
     PORT = 5000
     ALLOW_EXCL = False  # Allow ! commands as well as /
