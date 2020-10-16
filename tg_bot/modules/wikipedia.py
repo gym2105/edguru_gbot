@@ -34,3 +34,4 @@ from tg_bot.modules.helper_funcs.extraction import extract_user
 
   
     wikisearch_handler = DisableAbleCommandHandler("wse", wikisearch)
+    dispatcher.add_handler(wikisearch)
