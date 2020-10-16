@@ -28,6 +28,17 @@ if ENV:
 
     MESSAGE_DUMP = os.environ.get('MESSAGE_DUMP', None)
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
+    try:
+        SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+    except ValueError:
+        raise Exception("Your sudo users list does not contain valid integers.")
+
+  
+    try:
+        WHITELIST_USERS = set(int(x) for x in os.environ.get("WHITELIST_USERS", "").split())
+    except ValueError:
+        raise Exception("Your whitelisted users list does not contain valid integers.")
+
 
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     URL = os.environ.get('URL', "")  # Does not contain token
@@ -55,6 +66,17 @@ else:
 
     MESSAGE_DUMP = Config.MESSAGE_DUMP
     OWNER_USERNAME = Config.OWNER_USERNAME
+    try:
+        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
+    except ValueError:
+        raise Exception("Your sudo users list does not contain valid integers.")
+
+    
+    try:
+        WHITELIST_USERS = set(int(x) for x in Config.WHITELIST_USERS or [])
+    except ValueError:
+        raise Exception("Your whitelisted users list does not contain valid integers.")
+
     WEBHOOK = Config.WEBHOOK
     URL = Config.URL
     PORT = Config.PORT
