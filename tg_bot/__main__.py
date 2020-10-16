@@ -19,7 +19,8 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 hoi {}, my name is {}! if you have any questions about how to use me please give me /help... 
-im a group manager bot maintained by  [this person](tg://user?id={}).
+im a group super tool unique bot maintained by  [this person](tg://user?id={}).  i have been developed as extra utility for only edguru affliated group.
+my creator is @gym2105
 My future updates will be put into This Channel 
 For more commands click /help...
 **Keep in mind that any changes you DO do to the source have to be on github, as per the license.**
