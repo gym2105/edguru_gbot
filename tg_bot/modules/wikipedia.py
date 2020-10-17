@@ -25,13 +25,13 @@ from tg_bot.modules.helper_funcs.extraction import extract_user
 @run_async
 def wikisearch(bot: Bot, update: Update, args):
     message = update.effective_message
-  text = message.reply_to_message.text
+    text = message.reply_to_message.text
     results = wikipedia.search(text)
     for s in results:
         page = wikipedia.page(s)
         url = page.url
         result += f"> [{s}]({url}) \n"
-         message.reply_to_message.reply_text(result)
+        message.reply_to_message.reply_text(result)
 
 __help__ = """
  - /wse:{word} Type the word or expression you want to search use. like /wse telegram Word: Telegram Definition: A once-popular system of telecommunications, in which the sender would contact the telegram service and speak their [message] over the [phone]. The person taking the message would then send it, via a teletype machine, to a telegram office near the receiver's [address]. The message would then be hand-delivered to the addressee. From 1851 until it discontinued the service in 2006, Western Union was the best-known telegram service in the world.
