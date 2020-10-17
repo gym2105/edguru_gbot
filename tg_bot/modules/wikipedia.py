@@ -21,7 +21,8 @@ from tg_bot import dispatcher
 from tg_bot.__main__ import STATS
 from tg_bot.modules.disable import DisableAbleCommandHandler
 from tg_bot.modules.helper_funcs.extraction import extract_user
-  @run_async
+
+ @run_async
   def wikisearch(bot: Bot, update: Update, args):
     message = update.effective_message
   text = message.reply_to_message.text
