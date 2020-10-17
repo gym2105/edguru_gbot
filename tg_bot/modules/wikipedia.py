@@ -36,5 +36,5 @@ def wikisearch(bot: Bot, update: Update, args):
 __help__ = """
  - /wse:{word} Type the word or expression you want to search use. like /wse telegram Word: Telegram Definition: A once-popular system of telecommunications, in which the sender would contact the telegram service and speak their [message] over the [phone]. The person taking the message would then send it, via a teletype machine, to a telegram office near the receiver's [address]. The message would then be hand-delivered to the addressee. From 1851 until it discontinued the service in 2006, Western Union was the best-known telegram service in the world.
 """
-wikisearch_handler = DisableAbleCommandHandler("wse", wikisearch)
-dispatcher.add_handler(wikisearch)
+wikisearch_handle = DisableAbleCommandHandler("wse", wikisearch)
+dispatcher.add_handler(wikisearch_handle)
